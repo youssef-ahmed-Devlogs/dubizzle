@@ -1,0 +1,77 @@
+:root {
+    --fz-xxl:38px;
+    --fz-xl:28px;
+    --fz-lg:20px;
+    --fz-md:16px;
+    --fz-sm:14px;
+    --fz-xs:12px;
+    --fz-xxs:10px;
+
+    --header-h: 50px;
+    --navigator-h: 50px;
+}
+
+@media (min-width:1200px) {
+    :root {
+        --fz-xxl:45px;
+        --fz-xl:35px;
+        --fz-lg:26px;
+        --fz-md:18px;
+        --fz-sm:16px;
+        --fz-xs:14px;
+        --fz-xxs:12px;
+
+        --header-h: 60px;
+        --navigator-h: 60px;
+    }
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: var(--fz-xxl);
+}
+
+h2 {
+    font-size: var(--fz-xl);
+}
+
+h3 {
+    font-size: var(--fz-lg);
+}
+
+h4 {
+    font-size: var(--fz-md);
+}
+
+h5 {
+    font-size: var(--fz-sm);
+}
+
+h6 {
+    font-size: var(--fz-xs);
+}
+
+p {
+    font-size: var(--fz-xs);
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: var(--fz-xs);
+}
+
+span {
+    font-size: var(--fz-xs);  
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

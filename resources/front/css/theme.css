@@ -1,0 +1,38 @@
+:root {
+    --primary-color:#39C7A5;
+    --primary-color-hover:#39C7A5;
+    --primary-color-shadow:rgb(57, 199, 165);
+    --light-color:#fff;
+    --dark-color:#373C42;
+    --gray-color: #8A8A8A;
+    --gray-color-0: #e1e1e1;
+}
+
+.btn {
+    font-size: var(--fz-xs);
+    border-radius: 8px;
+}
+
+.btn-lg {
+    font-size: var(--fz-lg);
+}
+
+.btn-md {
+    font-size: var(--fz-md);
+}
+
+.btn-sm {
+    font-size: var(--fz-sm);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:focus,
+.btn-primary:focus-visible,
+.btn-primary:hover {
+    background-color:var(--primary-color-hover) !important;
+    border-color: var(--primary-color-hover) !important;
+}

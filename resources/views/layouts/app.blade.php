@@ -9,11 +9,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/front/css/app.css', 'resources/front/js/app.js'])
+
+    @stack('styles')
 </head>
 
 <body>
@@ -21,6 +25,10 @@
     <main>
         @yield('content')
     </main>
+
+
+    <link rel="stylesheet" href="{{ asset('front/js/bootstrap.min.js') }}">
+    @stack('scripts')
 </body>
 
 </html>
