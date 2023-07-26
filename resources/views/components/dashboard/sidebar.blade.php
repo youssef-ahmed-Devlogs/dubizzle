@@ -41,28 +41,28 @@
 
 
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard.index') }}">
+              <a class="nav-link" href="{{ route('dashboard.users.index') }}">
                   <i class="fas fa-fw fa-users"></i>
                   <span>Users</span>
               </a>
           </li>
 
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard.index') }}">
+              <a class="nav-link" href="{{ route('dashboard.categories.index') }}">
                   <i class="fas fa-fw fa-list-ul"></i>
                   <span>Categories</span>
               </a>
           </li>
 
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard.index') }}">
+              <a class="nav-link" href="{{ route('dashboard.ads.index') }}">
                   <i class="fas fa-fw fa-store"></i>
                   <span>Ads</span>
               </a>
           </li>
 
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('dashboard.index') }}">
+              <a class="nav-link" href="{{ route('dashboard.settings') }}">
                   <i class="fas fa-fw fa-cog"></i>
                   <span>Settings</span>
               </a>

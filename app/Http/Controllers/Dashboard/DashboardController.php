@@ -16,4 +16,12 @@ class DashboardController extends Controller
     {
         return view('auth.login');
     }
+
+    public function profile()
+    {
+    }
+
+    public function settings()
+    {
+    }
 }
