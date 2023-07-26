@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('db_storage', function (Blueprint $table) {
             $table->id();
             $table->string('file_path');
-            $table->enum('file_type',['jpg','jpeg','png','webp','pdf'])->nullable();
+            $table->enum('file_type', ['jpg', 'jpeg', 'png', 'webp', 'pdf'])->nullable();
             $table->float('file_size')->default(0);
-            $table->morphs('model');
+            $table->morphs('storable');
             $table->timestamps();
         });
     }

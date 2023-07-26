@@ -13,7 +13,7 @@
         <div class="form-group mb-3">
             <label for="" class="fw-bold">Name</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                placeholder="Enter user name" value="{{ old('name', $category->name) }}">
+                placeholder="Enter category name" value="{{ old('name', $category->name) }}">
 
             @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -33,7 +33,7 @@
                 @endforeach
             </select>
 
-            @error('role')
+            @error('parent_id')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>

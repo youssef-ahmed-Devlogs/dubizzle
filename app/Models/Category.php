@@ -22,7 +22,9 @@ class Category extends Model
 
     public function createdBy()
     {
-        return $this->belongsTo(User::class, 'created_by', 'id');
+        return $this->belongsTo(User::class, 'created_by', 'id')->withDefault([
+            'name' => ''
+        ]);
     }
 
     public function parent()

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users','id')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('description');
-            $table->text('full_description');
+            $table->enum('status', ['pending', 'published', 'disabled']);
+            $table->text('full_description')->nullable();
             $table->text('email')->nullable();
             $table->text('phone_number')->nullable();
             $table->timestamps();
