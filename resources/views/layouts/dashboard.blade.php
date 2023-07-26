@@ -22,6 +22,10 @@
     <link href="{{ asset('dashboard_/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <style>
+        .child-category-row {
+            background: #f1f1f1
+        }
+
         .inline-block {
             display: inline-block;
         }

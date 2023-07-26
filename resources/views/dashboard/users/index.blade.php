@@ -31,12 +31,13 @@
                         <th>Email</th>
                         <th>Phone Number</th>
                         <th>Role</th>
+                        <th>Created At</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($users as $user)
+                    @forelse ($users as $user)
                         <tr>
                             <td>
                                 <img src="{{ $user->getAvatar() }}" alt="{{ $user->name }}" class="table-image">
@@ -54,6 +55,7 @@
                                     <div class="badge bg-secondary text-light">{{ $user->role }}</div>
                                 @endif
                             </td>
+                            <td>{{ $user->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ route('dashboard.users.edit', $user) }}"
                                     class="btn btn-sm btn-success">Edit</a>
@@ -67,7 +69,11 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center">Empty</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

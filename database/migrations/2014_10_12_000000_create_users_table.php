@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['super-admin', 'admin', 'user'])->default('user');
             $table->rememberToken();
+            $table->timestamp('last_seen_at')->nullable();
             $table->timestamps();
         });
     }

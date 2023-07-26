@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('created_by')->nullable()->constrained('users','id')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreignId('parent_id')->nullable()->constrained('categories','id')->nullOnDelete()->cascadeOnUpdate();
-            $table->string('name');
-            $table->text('description');
-            $table->string('cover');
+            $table->foreignId('created_by')->nullable()->constrained('users', 'id')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('parent_id')->nullable()->constrained('categories', 'id')->nullOnDelete()->cascadeOnUpdate();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->string('cover')->nullable();
             $table->bigInteger('order')->default(0);
             $table->timestamps();
         });
