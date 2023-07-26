@@ -21,6 +21,19 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('dashboard_/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <style>
+        table td {
+            vertical-align: middle !important;
+        }
+
+        .table-image {
+            width: 40px;
+            border-radius: 50%;
+            height: 40px;
+            object-fit: cover;
+        }
+    </style>
+
     @stack('styles')
 </head>
 
