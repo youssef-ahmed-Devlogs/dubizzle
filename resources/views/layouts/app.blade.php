@@ -26,8 +26,8 @@
         @yield('content')
     </main>
 
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
 
-    <link rel="stylesheet" href="{{ asset('front/js/bootstrap.min.js') }}">
     @stack('scripts')
 </body>
 
