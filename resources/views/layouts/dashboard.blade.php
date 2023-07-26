@@ -63,7 +63,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <x-dashboard.modal />
+    <x-dashboard.logout-modal />
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('dashboard_/vendor/jquery/jquery.min.js') }}"></script>

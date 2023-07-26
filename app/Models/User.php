@@ -44,4 +44,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function avatar()
+    {
+        if ($this->avatar) {
+            return asset('storage/' . $this->avatar());
+        }
+
+        return asset('dashboard_/img/undraw_profile.svg');
+    }
 }
