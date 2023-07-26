@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory(10)->create();
+
         User::create([
             'name' => 'Super Admin',
             'email' => 'super_admin@admin.com',
@@ -22,7 +24,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'super-admin',
         ]);
-
-        // \App\Models\User::factory(10)->create();
     }
 }

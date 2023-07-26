@@ -22,6 +22,15 @@
     <link href="{{ asset('dashboard_/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <style>
+        .inline-block {
+            display: inline-block;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+            margin-bottom: 3px
+        }
+
         table td {
             vertical-align: middle !important;
         }
@@ -30,6 +39,13 @@
             width: 40px;
             border-radius: 50%;
             height: 40px;
+            object-fit: cover;
+        }
+
+        .form-profile-avatar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             object-fit: cover;
         }
     </style>

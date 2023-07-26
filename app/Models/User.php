@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +25,7 @@ class User extends Authenticatable
         'phone_number',
         'role',
         'avatar',
+        'password'
     ];
 
     /**
@@ -45,12 +48,22 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function avatar()
+    public function getAvatar()
     {
         if ($this->avatar) {
-            return asset('storage/' . $this->avatar());
+            return asset('storage/' . $this->avatar);
         }
-
         return asset('dashboard_/img/undraw_profile.svg');
+    }
+
+    public function scopeFilter(Builder $builder, $filters)
+    {
+        $options = array_merge([
+            'search' => '',
+        ], $filters);
+
+        $builder->when($options['search'], function (Builder $builder, $search) {
+            $builder->where('name', 'LIKE', "%$search%")->orWhere('email', 'LIKE', "%$search%");
+        });
     }
 }
