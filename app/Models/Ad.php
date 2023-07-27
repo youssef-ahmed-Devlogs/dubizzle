@@ -19,6 +19,8 @@ class Ad extends Model
         'email',
         'phone_number',
         'status',
+        'price',
+        'debatable'
     ];
 
     public function user()
@@ -42,7 +44,7 @@ class Ad extends Model
 
     public function getCover()
     {
-        if ($this->images) {
+        if ($this->images->count()) {
             return asset('storage/' . $this->images[0]->file_path);
         }
         return asset('dashboard_/img/undraw_profile.svg');

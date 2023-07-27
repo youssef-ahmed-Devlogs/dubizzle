@@ -110,6 +110,33 @@
         </div>
     </div>
 
+    <div class="col-lg-6">
+        <div class="form-group mb-3">
+            <label for="" class="fw-bold">Debatable</label>
+            <select name="debatable" class="form-control @error('debatable') is-invalid @enderror">
+                <option value="">Debatable</option>
+                <option value="1" @selected($ad->debatable == 1)>Yes</option>
+                <option value="0" @selected($ad->debatable == 0)>No</option>
+            </select>
+
+            @error('debatable')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-group mb-3">
+            <label for="" class="fw-bold">Price</label>
+            <input type="number" name="price" class="form-control @error('price') is-invalid @enderror"
+                placeholder="Enter ad price" value="{{ old('price', $ad->price) }}">
+
+            @error('price')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+
     <div class="col-12">
         @if ($ad->title)
             <button class="btn btn-success">Update</button>

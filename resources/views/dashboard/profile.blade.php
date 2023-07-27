@@ -4,6 +4,16 @@
 
 @push('styles')
     <style>
+        .ad-card {
+            text-decoration: none !important;
+            transition: 0.4s ease-in-out;
+        }
+
+        .ad-card:hover {
+            translate: 0 -10px;
+            box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
         .profile-header {
             background-color: #fff;
             border-radius: 8px;
@@ -141,13 +151,23 @@
                         <div class="card-body">
                             <h2 class="card-title">{{ $ad->title }}</h2>
 
-                            @if ($ad->status == 'pending')
-                                <div class="badge bg-warning text-dark">{{ $ad->status }}</div>
-                            @elseif ($ad->status == 'published')
-                                <div class="badge bg-primary text-light">{{ $ad->status }}</div>
-                            @elseif ($ad->status == 'disabled')
-                                <div class="badge bg-danger text-light">{{ $ad->status }}</div>
-                            @endif
+                            <div class="d-flex align-items-center" style="gap: 5px">
+                                @if ($ad->status == 'pending')
+                                    <div class="badge bg-warning text-dark">{{ $ad->status }}</div>
+                                @elseif ($ad->status == 'published')
+                                    <div class="badge bg-primary text-light">{{ $ad->status }}</div>
+                                @elseif ($ad->status == 'disabled')
+                                    <div class="badge bg-danger text-light">{{ $ad->status }}</div>
+                                @endif
+
+                                @if ($ad->debatable)
+                                    <div class="badge bg-success text-light">Debatable</div>
+                                @else
+                                    <div class="badge bg-warning text-dark">Undebatable</div>
+                                @endif
+                            </div>
+
+
                         </div>
                     </a>
                 </div>

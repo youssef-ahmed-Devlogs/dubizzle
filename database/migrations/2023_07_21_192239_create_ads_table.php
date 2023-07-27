@@ -16,7 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('description');
-            $table->enum('status', ['pending', 'published', 'disabled']);
+            $table->string('price')->default(0);
+            $table->boolean('debatable')->default(false);
+            $table->enum('status', ['pending', 'published', 'disabled'])->default('pending');
             $table->text('full_description')->nullable();
             $table->text('email')->nullable();
             $table->text('phone_number')->nullable();

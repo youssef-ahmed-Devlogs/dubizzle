@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Ad;
 use App\Models\Category;
 use App\Models\DBStorage;
+use App\Models\User;
+use App\Notifications\NewAdCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
@@ -63,6 +66,10 @@ class AdController extends Controller
                 ]);
             }
         }
+
+        $admins = User::where('role', '!=', 'user')->get();
+
+        Notification::send($admins, new NewAdCreated($ad));
 
         return back();
     }

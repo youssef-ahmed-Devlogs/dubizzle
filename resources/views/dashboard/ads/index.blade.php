@@ -29,6 +29,8 @@
                         <th></th>
                         <th>#</th>
                         <th>Title</th>
+                        <th>Price</th>
+                        <th>Debatable</th>
                         <th>Status</th>
                         <th>Created By</th>
                         <th>Created At</th>
@@ -44,6 +46,14 @@
                             </td>
                             <td>{{ $ad->id }}</td>
                             <td>{{ $ad->title }}</td>
+                            <td>{{ $ad->price }}</td>
+                            <td>
+                                @if ($ad->debatable)
+                                    <div class="badge bg-success text-light">Debatable</div>
+                                @else
+                                    <div class="badge bg-warning text-dark">Undebatable</div>
+                                @endif
+                            </td>
                             <td>
                                 @if ($ad->status == 'pending')
                                     <div class="badge bg-warning text-dark">{{ $ad->status }}</div>
