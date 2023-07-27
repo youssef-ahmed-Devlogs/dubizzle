@@ -56,6 +56,11 @@ class User extends Authenticatable
         return asset('dashboard_/img/undraw_profile.svg');
     }
 
+    public function ads()
+    {
+        return $this->hasMany(Ad::class);
+    }
+
     public function scopeFilter(Builder $builder, $filters)
     {
         $options = array_merge([

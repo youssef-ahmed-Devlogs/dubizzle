@@ -42,9 +42,9 @@ class Ad extends Model
 
     public function getCover()
     {
-        // if ($this->cover) {
-        //     return asset('storage/' . $this->cover);
-        // }
+        if ($this->images) {
+            return asset('storage/' . $this->images[0]->file_path);
+        }
         return asset('dashboard_/img/undraw_profile.svg');
     }
 

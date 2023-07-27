@@ -4,6 +4,7 @@
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">Ads List</h1>
+
     <div class="d-flex align-items-center justify-content-between my-2">
         <form class=" d-sm-inline-block form-inline mw-100">
             <div class="input-group">
