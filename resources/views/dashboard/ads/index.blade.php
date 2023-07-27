@@ -45,7 +45,7 @@
                             <td>{{ $ad->title }}</td>
                             <td>
                                 @if ($ad->status == 'pending')
-                                    <div class="badge bg-warnning text-dark">{{ $ad->status }}</div>
+                                    <div class="badge bg-warning text-dark">{{ $ad->status }}</div>
                                 @elseif ($ad->status == 'published')
                                     <div class="badge bg-primary text-light">{{ $ad->status }}</div>
                                 @elseif ($ad->status == 'disabled')

@@ -36,7 +36,7 @@
             <select name="categories_ids[]" class="form-control @error('categories_ids[]') is-invalid @enderror"
                 multiple>
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" @selected(in_array($category->id, $ad_categories ?? []))>{{ $category->name }}</option>
                 @endforeach
             </select>
 
@@ -83,12 +83,28 @@
         </div>
     </div>
 
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="form-group mb-3">
             <label for="" class="fw-bold">Images</label>
             <input type="file" name="images[]" class="form-control @error('images') is-invalid @enderror" multiple>
 
             @error('images')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-group mb-3">
+            <label for="" class="fw-bold">Status</label>
+            <select name="status" class="form-control @error('status') is-invalid @enderror">
+                <option value="">Select Status</option>
+                <option value="pending" @selected($ad->status == 'pending')>Pending</option>
+                <option value="published" @selected($ad->status == 'published')>Published</option>
+                <option value="disabled" @selected($ad->status == 'disabled')>Disabled</option>
+            </select>
+
+            @error('status')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>

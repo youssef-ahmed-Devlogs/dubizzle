@@ -37,7 +37,7 @@ class Ad extends Model
 
     public function images()
     {
-        return $this->hasMany(DBStorage::class, 'model_id', 'id')->where('model', Ad::class);
+        return $this->morphMany(DBStorage::class, 'storable');
     }
 
     public function getCover()
