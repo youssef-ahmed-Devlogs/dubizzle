@@ -13,27 +13,22 @@ use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthenticationController extends Controller
 {
-    public function authenticatedUser()
+    public function register(Request $request)
     {
-        return Response::json([
-            'status' => 'success',
-            'user' => new UserResource(Auth::guard('sanctum')->user())
-        ], 200);
     }
 
-    public function createToken(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required', 'min:8', 'max:30'],
             'device_name' => ['nullable', 'string', '255'],
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->username)->orWhere('phone_number', $request->username)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            $device_name = $request->post('device_name', $request->userAgent());
-            $token = $user->createToken($device_name);
+            $token = $this->createToken($request, $user);
 
             return Response::json([
                 'status' => 'success',
@@ -46,6 +41,18 @@ class AuthenticationController extends Controller
             'status' => 'fail',
             'message' => 'Invalid Credentials'
         ], 401);
+    }
+
+    public function authenticatedUser()
+    {
+        return Response::json([
+            'status' => 'success',
+            'user' => new UserResource(Auth::guard('sanctum')->user())
+        ], 200);
+    }
+
+    public function accessTokens(Request $request)
+    {
     }
 
     public function revokeCurrentToken()
@@ -78,5 +85,12 @@ class AuthenticationController extends Controller
         $user = Auth::guard('sanctum')->user();
         $user->tokens()->where('id', '!=',  $user->currentAccessToken()->id)->delete();
         return Response::json(null, 204);
+    }
+
+    private function createToken(Request $request, $user)
+    {
+        $device_name = $request->post('device_name', $request->userAgent());
+        $token = $user->createToken($device_name);
+        return $token;
     }
 }
