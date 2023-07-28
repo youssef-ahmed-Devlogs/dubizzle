@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TokenResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -73,6 +74,15 @@ class AuthenticationController extends Controller
 
     public function accessTokens(Request $request)
     {
+        $user = Auth::guard('sanctum')->user();
+        $currentTokenID = $user->currentAccessToken()->id;
+
+        $tokens = $user->tokens()->where('id', '!=', $currentTokenID)->get();
+
+        return Response::json([
+            'status' => 'success',
+            'tokens' => TokenResource::collection($tokens)
+        ], 200);
     }
 
     public function revokeCurrentToken()
