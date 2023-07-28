@@ -67,8 +67,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $categoryIsParent = Category::where('parent_id', $category->id)->count();
         $categories = Category::where('id', '!=', $category->id)->where('parent_id', '=', null)->get();
-        return view('dashboard.categories.edit', compact('category', 'categories'));
+        return view('dashboard.categories.edit', compact('category', 'categoryIsParent', 'categories',));
     }
 
     /**

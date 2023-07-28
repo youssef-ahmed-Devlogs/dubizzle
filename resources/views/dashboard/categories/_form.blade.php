@@ -21,23 +21,35 @@
         </div>
     </div>
 
-    <div class="col-lg-6">
-        <div class="form-group mb-3">
-            <label for="" class="fw-bold">Parent</label>
-            <select name="parent_id" class="form-control @error('parent_id') is-invalid @enderror">
-                <option value="">Without Parent</option>
-                @foreach ($categories as $parent_category)
-                    <option value="{{ $parent_category->id }}" @selected(old('parent_id', $category->parent_id) == $parent_category->id)>
-                        {{ $parent_category->name }}
-                    </option>
-                @endforeach
-            </select>
+    @if (!$categoryIsParent)
+        <div class="col-lg-6">
+            <div class="form-group mb-3">
+                <label for="" class="fw-bold">Parent</label>
+                <select name="parent_id" class="form-control @error('parent_id') is-invalid @enderror">
+                    <option value="">Without Parent</option>
+                    @foreach ($categories as $parent_category)
+                        <option value="{{ $parent_category->id }}" @selected(old('parent_id', $category->parent_id) == $parent_category->id)>
+                            {{ $parent_category->name }}
+                        </option>
+                    @endforeach
+                </select>
 
-            @error('parent_id')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+                @error('parent_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
-    </div>
+    @else
+        <div class="col-lg-6">
+            <div class="form-group mb-3">
+                <label for="" class="fw-bold">Parent</label>
+                <select class="form-control" disabled>
+                    <option value="">It is parent</option>
+                </select>
+            </div>
+        </div>
+    @endif
+
 
     <div class="col-lg-6">
         <div class="form-group mb-3">
