@@ -15,14 +15,34 @@ class AuthenticationController extends Controller
 {
     public function register(Request $request)
     {
+        $userData =  $request->validate([
+            'name' => ['required', 'string', 'min:6'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'phone_number' => ['required', 'unique:users,phone_number'],
+            'password' => ['required', 'min:8', 'confirmed'],
+            'device_name' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        unset($userData['device_name']);
+        $userData['password'] = Hash::make($userData['password']);
+
+        $user = User::create($userData);
+
+        $token = $this->createToken($request, $user);
+
+        return Response::json([
+            'status' => 'success',
+            'token' => $token->plainTextToken,
+            'user' =>  new UserResource($user)
+        ], 201);
     }
 
     public function login(Request $request)
     {
         $request->validate([
             'username' => ['required'],
-            'password' => ['required', 'min:8', 'max:30'],
-            'device_name' => ['nullable', 'string', '255'],
+            'password' => ['required', 'min:8'],
+            'device_name' => ['nullable', 'string', 'max:255'],
         ]);
 
         $user = User::where('email', $request->username)->orWhere('phone_number', $request->username)->first();

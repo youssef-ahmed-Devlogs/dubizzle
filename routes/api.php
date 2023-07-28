@@ -24,7 +24,7 @@ Route::post('auth/register', [AuthenticationController::class, 'register'])->nam
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('auth')->as('auth.')->group(function () {
-        Route::get('access-tokens', [UserController::class, 'activeSessions'])->name('access-tokens');
+        Route::get('access-tokens', [AuthenticationController::class, 'accessTokens'])->name('access-tokens');
         Route::delete('access-tokens', [AuthenticationController::class, 'revokeCurrentToken'])->name('revoke-current-token');
         Route::delete('access-tokens/all', [AuthenticationController::class, 'revokeTokens'])->name('revoke-tokens');
         Route::delete('access-tokens/exclude-current', [AuthenticationController::class, 'revokeTokensExcludeCurrent'])->name('revoke-tokens-exclude-current');
