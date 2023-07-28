@@ -61,6 +61,12 @@ class Ad extends Model
                 ->orwhere('description', 'LIKE', "%$search%")
                 ->orwhere('full_description', 'LIKE', "%$search%");
         });
+
+        // foreach ($options as $option) {
+        //     $builder->when($options[$option], function (Builder $builder, $value) use ($option) {
+        //         $builder->where($option, $value);
+        //     });
+        // }
     }
 
     private function deleteCover($category)
