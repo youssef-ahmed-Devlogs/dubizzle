@@ -104,10 +104,37 @@
 
         <div class="topbar-divider d-none d-sm-block"></div>
 
-        <!-- Nav Item - User Information -->
+
+
+
+        <!-- Nav Item - Change Language -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600">{{ App::getLocale() }}</span>
+                <img class="img-profile rounded-circle" src="{{ asset('dashboard_/img/' . App::getLocale() . '.png') }}"
+                    style="object-fit: cover">
+            </a>
+
+            <!-- Dropdown - Change Language -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <a class="dropdown-item" hreflang="{{ $localeCode }}"
+                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        <img class="img-profile rounded-circle"
+                            src="{{ asset('dashboard_/img/' . $localeCode . '.png') }}"
+                            style="object-fit: cover;width:25px;height: 25px;">
+
+                        {{ $properties['native'] }}
+                    </a>
+                @endforeach
+            </div>
+        </li>
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                 <img class="img-profile rounded-circle" src="{{ Auth::user()->getAvatar() }}">
             </a>
