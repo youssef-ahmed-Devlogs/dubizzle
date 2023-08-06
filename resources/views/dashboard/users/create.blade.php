@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Create a new user')
+@section('title', __('Create a new user'))
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Create a new user</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Create a new user') }}</h1>
 
 
     <div class="row">

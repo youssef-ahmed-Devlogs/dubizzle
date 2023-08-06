@@ -10,7 +10,7 @@
     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
         aria-labelledby="alertsDropdown">
         <h6 class="dropdown-header">
-            Alerts Center
+            {{ __('Alerts Center') }}
         </h6>
 
         @forelse (Auth::user()->notifications as $notification)
@@ -35,12 +35,13 @@
                     </div>
                 </div>
                 <div>
-                    There's no notifications
+                    {{ __("There's no notifications") }}
                 </div>
             </a>
         @endforelse
 
-        <a class="dropdown-item text-center small text-gray-500" href="#">Show All
-            Alerts</a>
+        <a class="dropdown-item text-center small text-gray-500" href="#">
+            {{ __('Show All') }}
+        </a>
     </div>
 </li>

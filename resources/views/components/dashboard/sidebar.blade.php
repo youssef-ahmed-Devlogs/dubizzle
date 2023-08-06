@@ -16,7 +16,7 @@
           <li class="nav-item">
               <a class="nav-link" href="{{ route('dashboard.index') }}">
                   <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dashboard</span>
+                  <span>{{ __('Dashboard') }}</span>
               </a>
           </li>
 
@@ -43,28 +43,28 @@
           <li class="nav-item {{ Route::is('dashboard.users.*') ? 'active' : '' }}">
               <a class="nav-link" href="{{ route('dashboard.users.index') }}">
                   <i class="fas fa-fw fa-users"></i>
-                  <span>Users</span>
+                  <span>{{ __('Users') }}</span>
               </a>
           </li>
 
           <li class="nav-item {{ Route::is('dashboard.categories.*') ? 'active' : '' }}">
               <a class="nav-link" href="{{ route('dashboard.categories.index') }}">
                   <i class="fas fa-fw fa-list-ul"></i>
-                  <span>Categories</span>
+                  <span>{{ __('Categories') }}</span>
               </a>
           </li>
 
           <li class="nav-item {{ Route::is('dashboard.ads.*') ? 'active' : '' }}">
               <a class="nav-link" href="{{ route('dashboard.ads.index') }}">
                   <i class="fas fa-fw fa-store"></i>
-                  <span>Ads</span>
+                  <span>{{ __('Ads') }}</span>
               </a>
           </li>
 
           <li class="nav-item {{ Route::is('dashboard.settings') ? 'active' : '' }}">
               <a class="nav-link" href="{{ route('dashboard.settings') }}">
                   <i class="fas fa-fw fa-cog"></i>
-                  <span>Settings</span>
+                  <span>{{ __('Settings') }}</span>
               </a>
           </li>
 

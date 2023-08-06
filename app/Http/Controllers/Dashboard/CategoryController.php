@@ -26,8 +26,9 @@ class CategoryController extends Controller
     public function create()
     {
         $category = new Category;
+        $categoryIsParent = 0;
         $categories = Category::where('parent_id', '=', null)->get();
-        return view('dashboard.categories.create', compact('category', 'categories'));
+        return view('dashboard.categories.create', compact('category', 'categoryIsParent', 'categories'));
     }
 
     /**

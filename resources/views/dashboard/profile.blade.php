@@ -102,7 +102,7 @@
 @endpush
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Profile</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Profile') }}</h1>
 
     <div class="profile-header">
         <div class="profile-model">
@@ -114,11 +114,13 @@
                 <div class="profile-name">{{ $user->name }}</div>
                 <div class="profile-bio">
                     @if ($user->role === 'super-admin')
-                        <div class="badge bg-primary text-light">{{ $user->role }}</div>
+                        <div class="badge bg-primary text-light"> {{ __(ucwords(str_replace('-', ' ', $user->role))) }}
+                        </div>
                     @elseif ($user->role === 'admin')
-                        <div class="badge bg-info text-light">{{ $user->role }}</div>
+                        <div class="badge bg-info text-light"> {{ __(ucwords(str_replace('-', ' ', $user->role))) }}</div>
                     @else
-                        <div class="badge bg-secondary text-light">{{ $user->role }}</div>
+                        <div class="badge bg-secondary text-light"> {{ __(ucwords(str_replace('-', ' ', $user->role))) }}
+                        </div>
                     @endif
                 </div>
             </div>
@@ -126,20 +128,20 @@
     </div>
 
     <div class="profile-details">
-        <h2 class="profile-sec-title">Main Info</h2>
+        <h2 class="profile-sec-title">{{ __('Main Info') }}</h2>
 
         <ul class="main-info">
             <li>
-                Email: <Strong>{{ $user->email }}</Strong>
+                {{ __('Email') }}: <Strong>{{ $user->email }}</Strong>
             </li>
             <li>
-                Phone Number: <strong>{{ $user->phone_number }}</strong>
+                {{ __('Phone Number') }}: <strong>{{ $user->phone_number }}</strong>
             </li>
         </ul>
     </div>
 
     <div class="profile-ads">
-        <h2 class="profile-sec-title">Ads</h2>
+        <h2 class="profile-sec-title">{{ __('Ads') }}</h2>
 
         <div class="row">
 
@@ -161,9 +163,9 @@
                                 @endif
 
                                 @if ($ad->debatable)
-                                    <div class="badge bg-success text-light">Debatable</div>
+                                    <div class="badge bg-success text-light">{{ __('Debatable') }}</div>
                                 @else
-                                    <div class="badge bg-warning text-dark">Undebatable</div>
+                                    <div class="badge bg-warning text-dark">{{ __('Undebatable') }}</div>
                                 @endif
                             </div>
 
@@ -174,7 +176,7 @@
 
             @empty
                 <div class="col-12">
-                    <p>This profile has no ads</p>
+                    <p>{{ __('This profile has no ads') }}</p>
                 </div>
             @endforelse
 

@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
-@section('title', "Update $category->name category")
+@section('title', __('Update') . " $category->name " . __('category'))
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Update <strong>{{ $category->name }}</strong> category</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Update') }} <strong>{{ $category->name }}</strong> {{ __('category') }}</h1>
 
 
     <div class="row">

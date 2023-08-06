@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
-@section('title', "Update $user->name profile")
+@section('title', __('Update') . " $user->name ")
 
 @section('content')
-    <h1 class="h3 mb-4 text-gray-800">Update <strong>{{ $user->name }}</strong> profile</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Update') }} <strong>{{ $user->name }}</strong> </h1>
 
 
     <div class="row">

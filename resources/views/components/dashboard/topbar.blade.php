@@ -6,18 +6,6 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    <!-- Topbar Search -->
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
-        </div>
-    </form>
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -61,7 +49,7 @@
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                    Message Center
+                    {{ __('Message Center') }}
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
@@ -108,8 +96,9 @@
                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                     </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
-                    Messages</a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">
+                    {{ __('Read More') }}
+                </a>
             </div>
         </li>
 
@@ -127,13 +116,13 @@
                 <a class="dropdown-item {{ Route::is('dashboard.profile') ? 'active' : '' }}"
                     href="{{ route('dashboard.profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
+                    {{ __('Profile') }}
                 </a>
 
                 <a class="dropdown-item {{ Route::is('dashboard.settings') ? 'active' : '' }}"
                     href="{{ route('dashboard.settings') }}">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
+                    {{ __('Settings') }}
                 </a>
 
                 <div class="dropdown-divider"></div>
@@ -141,7 +130,7 @@
 
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
+                    {{ __('Logout') }}
                 </a>
             </div>
         </li>

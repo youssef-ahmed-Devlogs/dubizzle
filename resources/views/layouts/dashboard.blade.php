@@ -19,7 +19,13 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('dashboard_/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    @if (app()->getLocale() == 'ar')
+        <link href="{{ asset('dashboard_/css/sb-admin-2-rtl.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('dashboard_/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    @endif
+
 
     <style>
         .child-category-row {
